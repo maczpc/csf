@@ -1,0 +1,35 @@
+#!/bin/sh
+#
+# This is an example of CSF start/stop script
+#
+# forcestart/forcestop/forcerestart the csfd 
+#
+# Zhang Shuo(Avin)  <zhangshuo@staff.sina.com.cn>
+#
+
+
+. /etc/rc.subr
+
+name="csfd"
+conf="/usr/local/etc/${name}.conf"
+
+#rcvar=${name}_enable
+#rcvar=`set_rcvar`
+
+
+: ${csfd_enable="NO"}
+: ${csfd_user="nobody"}
+
+command=/usr/local/bin/csfd
+command_args="-f ${conf}"
+
+pidfile="/var/run/${name}.pid"
+required_files=${conf}
+
+sig_reload="HUP"
+sig_stop="TERM"
+
+unset csfd_user
+
+load_rc_config ${name}
+run_rc_command "$1"

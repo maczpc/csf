@@ -1,0 +1,32 @@
+2008-3-30 Zhu Yan<zhuyan@staff.sina.com.cn>
+	* Change the source code layout, and start the RC test.
+	
+2008-12-12 [CSF 3.0 RC1]  Avin <zhangshuo@staff.sina.com.cn>
+	* fixed a bug of function: free_pipeline_data, which may leads to read NULL pointer.
+	* add a parameter of Monitor of csf: MNT_DISREG, which is use to disregister pointers.
+	* add a function of response the -HUP signal, which is used to reload the configuration
+	  file. the all configuration can be modified except 'port', 'timeout' and 'protocol'.
+	  if -HUP signal is responsed, the old protocol and pipeline will work until all old
+	  request & thread finished, and at that moment, the new protocol and pipeline has 
+	  been at work. this means that your business will not be interrupted.
+	* upgrade the csf Monitor module which write in python. the monitor will display 
+	  different color on changed digits (red color). this feature needs to be supported
+	  by the terminal. there also be a notice that ask you whether switch on the color
+	  support which can avoid unexpect characters on the terminal that do not support
+	  color transfering characters.
+	
+	the bugs list below have found but not fixed yet:
+	* a bug of conf parser, which may leads to segment fault.
+	  please use CONF_ITEM_LEN + 1 to specify the conf value buffer length.
+	  
+	notice:
+	* this is a RC edition, be serious-minded when use -HUP function to re-configure
+	  your csf when running a heavy service.
+	  there is no problems under my test, but i do not guarantee it's safe absolutely.
+	  
+2008-12-30  [CSF 3.1 RC1]  Avin <zhangshuo@staff.sina.com.cn>
+	* add internal log support. you can log your message without syslogd for a better
+	  performance especially on Linux. And reloading configure file via -HUP is also
+	  well supported.
+	  
+	  for more details about how to use CSF LOGGER, please refer to sl.conf or contact me.

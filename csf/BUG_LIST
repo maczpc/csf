@@ -1,0 +1,101 @@
+start from 2009-3-1
+
+bug #1[2009.3.3]: 使用 stat [module_name] monitor崩溃
+	Reply: fixed.
+	
+bug #2[2009.3.3]: 简化worker thread和submit request
+	Reply: worker thread简化完成. submit request耦合性太高，未简化
+	
+bug #3[2009.3.10]: monitor仅显示busy/total字段
+	Reply: fixed.
+	
+bug #4[2009.3.13]: HUP响应出错
+	Reply: fixed.
+	
+bug #5[2009.3.13]: 使用 stat [module_name] monitor崩溃
+	Reply: fixed.
+	
+bug #6[2009.3.13]: 增加可以指定日志ident的配置项
+	Reply: fixed.
+	
+bug #7[2009.3.16]: 增加一份《CSF 配置文档说明》
+	Reply: fixed.
+	
+bug #8[2009.3.19]: 修改所有init_xxx_xxx函数名为xxx_xxx_init
+	Reply: fixed.
+	
+bug #9[2009.3.19]: 修正了monitor的一个bug
+	Reply: fixed.
+	
+bug #10[2009.3.19]: 增加csf daemon写pid的功能
+	Reply: fixed.
+	
+bug #11[2009.3.19]: 增加了可靠退出csf的功能，使用-TERM信号
+	Reply: fixed.
+	
+bug #12[2009.3.23]: 更新了Makefile，仅修改<csf root>/Makefile即可
+	Reply: fixed.
+	
+bug #13[2009.3.24]: 修改了WLOG_DEBUG宏的影响范围，NOTICE级以下级别在WLOG_DEBUG未定义时失效
+	Reply: fixed.
+	
+bug #14[2009.3.25]: 增加CSF的启动脚本
+	Reply: fixed.
+	
+bug #15[2009.3.25]: 保存daemon pid时过早,致使daemon模式下pid错误，daemonize函数改变了pid
+	Reply: fixed.
+	
+bug #16[2009.3.25]: pid的文件名获取错误。
+	Reply: fixed. 复制字符串谨慎使用memcpy，修改为strncpy正常
+	
+bug #17[2009.3.27]: csf死不了技术可能和fork出的子进程有潜在的资源冲突
+	Reply: fixed. 使用了wait等待子进程
+	
+bug #18[2009.3.30]: 一个变量重复赋值的bug
+	Reply: fixed.
+	
+bug #19[2009.3.30]: CSF在检查到protocol,mod版本不匹配时，不会退出
+	Reply: fixed.
+	
+bug #20[2009.3.30]: CSF启动有过多的信息输出
+	Reply: fixed.
+	
+bug #21[2009.3.30]: CSF在检查没有protocol模块的情况下，会使用默认模块，并输出“PROTOCOL MODULE: CSF default protocol.”
+	Reply: fixed.
+	
+bug #22[2009.3.30]: CSF增加了对每个RQCB的queue len、被提交次数的监视。
+	Reply: fixed.
+	
+bug #23[2009.3.30]: 使用queue len控制流水线
+	Reply: -
+	
+bug #24[2009.3.30]: CSF需要绑定IP功能
+	Reply: fixed.
+
+bug #25[2009.3.30]: 《CSF 完全开发文档》
+
+bug #26[2009.3.30]: CSF fast cgi 接口研究
+
+bug #27[2009.3.30]: CSF 的 submit check 问题
+
+bug #28[2009.3.30]: CSF 的 流水线级间跳转
+
+bug #29[2009.4.1]: kick_request_queue 遍历PCB时，避免遍历不必要的元素
+
+bug #30[2009.4.2]: csf版本控制冗余字段问题
+	Reply: fixed. 修改为仅需要csf core version。
+
+bug #31[2009.4.2]: monitor.py 字符串处理逻辑错误
+	Reply: fixed. 修正了break缩进错误导致逻辑错误
+	
+bug #32[2009.4.2]: csf -TERM -HUP 等待任务完成时，忽略每条流水线中第一级数据
+	Reply: fixed. 
+	
+bug #33[2009.4.2]: monitor参数简化
+	Reply: fixed. 可支持 python monitor.py, 如果禁用颜色，使用 -b
+	
+bug #34[2009.4.2]: 让csf monitor支持UNIX 域socket
+
+
+bug #35[2009.4.27]: 支持submit_request的引用计数。在没有流水线执行时调用session end。此举为了解决连续submit request可能导致session end执行错误的情况
+

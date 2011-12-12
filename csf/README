@@ -1,0 +1,16 @@
+Welcome to Common Server Framework (CSF) -- version 4.0.0
+
+CSF is a Fast, Scalable, Server Framework which could become many server. 
+Likes Web Server, Mail Server, Cache Server, Message Server etc.
+
+Dependencies:
+	-- libevent, http://www.monkey.org/~provos/libevent/ (libevent-dev)
+	-- pthread, CSF is a Mutli-Threaded Framework, so, your system 
+	should support pthread normally. For Linux, you'd better use 
+	the NPTL(Native Posix Thread Library), but not LinuxThread.
+	For FreeBSD, you'd better use it in FreeBSD 7 or later.
+
+
+
+Enjoy!
+Zhu Yan <zhuyan@staff.sina.com.cn>
